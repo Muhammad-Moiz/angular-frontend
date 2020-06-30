@@ -1,22 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
-import { ItemService } from './services/item/item.service'
-import { Item } from './shared/item'
+import { ItemService } from '../../services/item/item.service'
+import { Item } from '../../shared/item'
 
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-item',
+  templateUrl: './item.component.html',
+  styleUrls: ['./item.component.css']
 })
-export class AppComponent implements OnInit {
-
-  public form: FormGroup;
-  dataSource: Item[];
+export class ItemComponent implements OnInit {
 
   constructor(private ItemService: ItemService) { }
+  dataSource: Item[];
 
   async ngOnInit() {
     this.ItemService.getItems().subscribe(
@@ -31,11 +28,6 @@ export class AppComponent implements OnInit {
       }
     );
   }
-
-  loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-  });
 
   displayedColumns: string[] = ['Position', 'Task', 'Status', 'Actions'];
 

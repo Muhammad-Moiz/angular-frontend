@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { baseURL } from '../../shared/baseurl';
 
 
 import { Item } from '../../shared/item';
@@ -10,10 +12,14 @@ import { ELEMENT_DATA } from '../../shared/items';
 })
 export class ItemService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getItems(): Item [] {
-    return ELEMENT_DATA;
+  getItems() {
+    return this.http.get(baseURL + 'item/');
   }
+updateItem(id:any){
+  console.log("sadid_ ",id)
+  return this.http.get(baseURL + 'item/markDone/' + id);
+}
 
 }
