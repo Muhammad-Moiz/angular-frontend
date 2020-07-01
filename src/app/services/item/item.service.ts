@@ -3,10 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { baseURL } from '../../shared/baseurl';
 
 
-import { Item } from '../../shared/item';
-
-import { ELEMENT_DATA } from '../../shared/items';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,8 +14,7 @@ export class ItemService {
     return this.http.get(baseURL + 'item/');
   }
 updateItem(id:any){
-  console.log("sadid_ ",id)
-  return this.http.get(baseURL + 'item/markDone/' + id);
+   return this.http.get(baseURL + 'item/markDone/' + id);
 }
 
 }

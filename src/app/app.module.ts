@@ -25,6 +25,10 @@ import { LoginComponent } from './component/login/login.component';
 import { ItemComponent } from './component/item/item.component';
 import { RouterModule, Routes } from '@angular/router';
 
+const routes = [
+  { path: 'item',  component: ItemComponent },
+  { path: '',     component: LoginComponent },
+];
 
 @NgModule({
   declarations: [
@@ -47,10 +51,7 @@ import { RouterModule, Routes } from '@angular/router';
     MatTableModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'item',  component: ItemComponent },
-      { path: '',     component: LoginComponent },
-    ])
+    RouterModule.forRoot(routes)
     ],
   providers: [
     ItemService,

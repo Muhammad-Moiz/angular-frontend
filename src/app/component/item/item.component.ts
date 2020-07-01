@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ItemService } from '../../services/item/item.service'
 import { Item } from '../../shared/item'
-
 
 
 @Component({
@@ -12,10 +12,13 @@ import { Item } from '../../shared/item'
 })
 export class ItemComponent implements OnInit {
 
-  constructor(private ItemService: ItemService) { }
+  constructor(
+    private ItemService: ItemService,
+    private router: Router,
+    ) { }
   dataSource: Item[];
 
-  async ngOnInit() {
+  ngOnInit() {
     this.ItemService.getItems().subscribe(
       (data: any) => {
 
@@ -29,15 +32,21 @@ export class ItemComponent implements OnInit {
     );
   }
 
+  logout() {
+    console.log("sssssssssssssssssddd")
+    localStorage.setItem('isLoggedIn', 'false');
+    this.router.navigate(['/']);
+  }
+
   displayedColumns: string[] = ['Position', 'Task', 'Status', 'Actions'];
 
-  update(id:any) {
+  update(id: any) {
     this.ItemService.updateItem(id).subscribe(
       (data: any) => {
         this.ngOnInit();
       },
       (error) => {
-         this.ngOnInit();
+        this.ngOnInit();
       }
     );
   }
