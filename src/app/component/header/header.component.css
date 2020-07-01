@@ -1,0 +1,10 @@
+example-spacer {
+  flex: 1 1 auto;
+}
+
+.alignLeft {
+  right: 0;
+  position: absolute;
+  text-align: right;
+  margin-right: 20px;
+}

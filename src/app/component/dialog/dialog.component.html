@@ -1,0 +1,15 @@
+<form novalidate #loginForm="ngForm"  >
+  <h1 mat-dialog-title>Add Task</h1>
+<div>
+  <p>
+    <mat-form-field>
+      <mat-label>Task Title</mat-label>
+      <input matInput [(ngModel)]="data.task" name="task">
+    </mat-form-field>
+  </p>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.task" cdkFocusInitial>Save</button>
+</div>
+</form>

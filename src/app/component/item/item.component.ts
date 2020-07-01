@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { ItemService } from '../../services/item/item.service'
 import { Item } from '../../shared/item'
 
-
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
@@ -21,9 +20,6 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
     this.ItemService.getItems().subscribe(
       (data: any) => {
-
-        console.log('success', data)
-
         this.dataSource = data as Item[];
       },
       (error) => {
@@ -33,7 +29,6 @@ export class ItemComponent implements OnInit {
   }
 
   logout() {
-    console.log("sssssssssssssssssddd")
     localStorage.setItem('isLoggedIn', 'false');
     this.router.navigate(['/']);
   }
@@ -50,6 +45,4 @@ export class ItemComponent implements OnInit {
       }
     );
   }
-
-
 }

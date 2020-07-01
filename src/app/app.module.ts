@@ -8,7 +8,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule,   ReactiveFormsModule } from '@angular/forms';
  import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -24,8 +24,12 @@ import { baseURL } from './shared/baseurl';
 import { LoginComponent } from './component/login/login.component';
 import { ItemComponent } from './component/item/item.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HeaderComponent } from './component/header/header.component';
+import { DialogComponent } from './component/dialog/dialog.component';
+import {MatIconModule} from '@angular/material/icon';
+ import {MatDialogModule} from '@angular/material/dialog';
 
-const routes = [
+ const routes = [
   { path: 'item',  component: ItemComponent },
   { path: '',     component: LoginComponent },
 ];
@@ -33,24 +37,28 @@ const routes = [
 @NgModule({
   declarations: [
     AppComponent,
-
     LoginComponent,
-    ItemComponent
+    ItemComponent,
+    HeaderComponent,
+    DialogComponent,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
+    MatDialogModule,
     AppRoutingModule,
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
     MatFormFieldModule,
-    ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatTableModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatIconModule,
     RouterModule.forRoot(routes)
     ],
   providers: [

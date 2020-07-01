@@ -13,8 +13,14 @@ export class ItemService {
   getItems() {
     return this.http.get(baseURL + 'item/');
   }
-updateItem(id:any){
-   return this.http.get(baseURL + 'item/markDone/' + id);
-}
+  updateItem(id: any) {
+    return this.http.get(baseURL + 'item/markDone/' + id);
+  }
+
+  insertItem(Task: any) {
+    return this.http.post(baseURL + 'item/insert/', {
+      task: Task
+    });
+  }
 
 }
