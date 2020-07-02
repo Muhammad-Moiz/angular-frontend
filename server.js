@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/angular-new'));
 
 app.get('*', function(req,res) {
   // Replace the '/dist/<to_your_project_name>/index.html'
-  res.sendFile(path.join(__dirname + '/dist/angular-new/src/index.html'));
+  res.sendFile(path.join(__dirname + '/dist/angular-new/index.html'));
 
 
 });
