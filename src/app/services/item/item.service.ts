@@ -17,6 +17,10 @@ export class ItemService {
     return this.http.get(baseURL + 'item/markDone/' + id);
   }
 
+  deleteItem(id: any) {
+    return this.http.get(baseURL + 'item/delete/' + id);
+  }
+
   insertItem(Task: any) {
     return this.http.post(baseURL + 'item/insert/', {
       task: Task

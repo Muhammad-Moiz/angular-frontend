@@ -36,6 +36,7 @@ export class ItemComponent implements OnInit {
   displayedColumns: string[] = ['Position', 'Task', 'Status', 'Actions'];
 
   update(id: any) {
+
     this.ItemService.updateItem(id).subscribe(
       (data: any) => {
         this.ngOnInit();
@@ -44,5 +45,20 @@ export class ItemComponent implements OnInit {
         this.ngOnInit();
       }
     );
+
   }
+
+  delete(id: any) {
+
+    this.ItemService.deleteItem(id).subscribe(
+      (data: any) => {
+        this.ngOnInit();
+      },
+      (error) => {
+        this.ngOnInit();
+      }
+    );
+
+  }
+
 }

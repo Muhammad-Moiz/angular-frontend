@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 
 import { ItemService } from './services/item/item.service'
 import { Item } from './shared/item'
+import { Router } from '@angular/router';
 
 
 
@@ -16,14 +17,18 @@ export class AppComponent implements OnInit {
   public form: FormGroup;
   dataSource: Item[];
 
-  constructor(private ItemService: ItemService) { }
+  constructor(private ItemService: ItemService, router: Router) {
+    if (localStorage.getItem('isLoggedIn') == 'true') {
+      router.navigate(['/item']);
+    }else{
+      router.navigate(['/']);
+    }
+   }
 
   async ngOnInit() {
     this.ItemService.getItems().subscribe(
       (data: any) => {
-
         console.log('success', data)
-
         this.dataSource = data as Item[];
       },
       (error) => {
